@@ -1,5 +1,14 @@
 import { Link, useMatchRoute } from '@tanstack/react-router';
-import { AudioLines, Box, Captions, type LucideIcon, Mic, Settings, Volume2, Wand2 } from 'lucide-react';
+import {
+  AudioLines,
+  Box,
+  Captions,
+  type LucideIcon,
+  Mic,
+  Settings,
+  Volume2,
+  Wand2,
+} from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import voiceboxLogo from '@/assets/voicebox-logo.png';
@@ -21,6 +30,7 @@ const tabs: Array<{
   label?: string;
 }> = [
   { id: 'main', path: '/', icon: Volume2, labelKey: 'nav.generate' },
+  { id: 'narration', path: '/narration', icon: Captions, label: '文博讲解' },
   { id: 'stories', path: '/stories', icon: AudioLines, labelKey: 'nav.stories' },
   { id: 'captures', path: '/captures', icon: Captions, labelKey: 'nav.captures' },
   { id: 'voices', path: '/voices', icon: Mic, labelKey: 'nav.voices' },

@@ -1,3 +1,4 @@
+import { NarrationTab } from '@/components/NarrationTab/NarrationTab';
 import {
   createRootRoute,
   createRoute,
@@ -97,6 +98,12 @@ const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/',
   component: MainEditor,
+});
+
+const narrationRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/narration',
+  component: NarrationTab,
 });
 
 // Stories route
@@ -202,6 +209,7 @@ const serverRedirectRoute = createRoute({
 // Route tree
 const routeTree = rootRoute.addChildren([
   indexRoute,
+  narrationRoute,
   storiesRoute,
   capturesRoute,
   voicesRoute,

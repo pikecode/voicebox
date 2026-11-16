@@ -843,9 +843,14 @@ def get_tts_backend_for_engine(engine: str) -> TTSBackend:
 
             backend = OmniVoiceBackend()
         elif engine == "qwen_custom_voice":
-            from .qwen_custom_voice_backend import QwenCustomVoiceBackend
+            if get_backend_type() == "mlx":
+                from .qwen_custom_voice_mlx_backend import QwenCustomVoiceMLXBackend
 
-            backend = QwenCustomVoiceBackend()
+                backend = QwenCustomVoiceMLXBackend()
+            else:
+                from .qwen_custom_voice_backend import QwenCustomVoiceBackend
+
+                backend = QwenCustomVoiceBackend()
         elif engine == "qwen_voice_design":
             from .qwen_voice_design_backend import QwenVoiceDesignBackend
 
